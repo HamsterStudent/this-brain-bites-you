@@ -1,95 +1,150 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import MainBanner from "public/assets/temp/main_banner.png";
+import NewBanner from "public/assets/temp/new.png";
+import IconTooth from "public/assets/temp/icon_tooth.png";
+import Image from "next/image";
+import styled, { keyframes } from "styled-components";
+import Link from "next/link";
+import Navigation from "./_components/navigation";
+
+const MainWrap = styled.section`
+  width: 100%;
+  display: flex;
+  align-items: start;
+`;
+
+const MainContentsWrap = styled.section`
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const marquee = keyframes`
+  0% {
+    transform: translateX(0)
+  }
+  100% {
+    transform: translateX(-100%)
+  }
+`;
+const swap = keyframes`
+  0%, 50% {
+    left: 0%;
+  }
+  50.01%,
+  100% {
+    left: 100%;
+  }
+`;
+
+const MainBenner = styled.div`
+  width: 50%;
+  min-height: 100px;
+  max-height: 150px;
+  display: flex;
+  align-items: center;
+  .icon {
+    width: 50px;
+  }
+  .prompt {
+    width: 300px;
+    min-width: 100%;
+    overflow: hidden;
+    height: 50px;
+    margin: 0 auto;
+    white-space: nowrap;
+    min-width: 0;
+    border: dotted 1px #61ff5e;
+    display: flex;
+    align-items: center;
+    .ticker {
+      display: inline-block;
+      animation: ${marquee} 20s linear infinite;
+    }
+    .item-collection-1 {
+      position: relative;
+      left: 0%;
+      animation: ${swap} 20s linear infinite;
+    }
+    .item {
+      display: inline-block;
+      /* color: #fff; */
+      margin-left: 15px;
+    }
+  }
+`;
+const ImageWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+`;
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <MainWrap>
+      <MainContentsWrap>
+        <ImageWrap>
+          <Image src={MainBanner} alt="MainBanner" />
+        </ImageWrap>
+        <MainBenner>
+          <ImageWrap>
+            <Image src={NewBanner} alt="NewBanner" />
+          </ImageWrap>
+        </MainBenner>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <MainBenner>
+          <div className="icon">
+            <ImageWrap>
+              <Image src={IconTooth} alt="IconTooth" />
+            </ImageWrap>
+          </div>
+          <div className="prompt">
+            <div className="ticker">
+              <span className="item-collection-1">
+                <span className="item">
+                  <Link href={"/"}>
+                    {"[ "}HAMSTER PARTY{" ]"} : 불온한 사상을 가진 정당
+                  </Link>
+                </span>
+                <span className="item">
+                  <Link href={"/"}>
+                    {"[ "}GOOD IS GOOD{" ]"} : 당연한 것에 대해서
+                  </Link>
+                </span>
+                <span className="item">
+                  <Link href={"/"}>
+                    {"[ "}WHAT IS RAT?{" ]"} : 옳은 것인가에 대한 질문
+                  </Link>
+                </span>
+              </span>
+              <span className="item-collection-2">
+                <span className="item">
+                  <Link href={"/"}>
+                    {"[ "}HAMSTER PARTY{" ]"} : 불온한 사상을 가진 정당
+                  </Link>
+                </span>
+                <span className="item">
+                  <Link href={"/"}>
+                    {"[ "}GOOD IS GOOD{" ]"} : 당연한 것에 대해서
+                  </Link>
+                </span>
+                <span className="item">
+                  <Link href={"/"}>
+                    {"[ "}WHAT IS RAT?{" ]"} : 옳은 것인가에 대한 질문
+                  </Link>
+                </span>
+              </span>
+            </div>
+          </div>
+        </MainBenner>
+      </MainContentsWrap>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <Navigation />
+    </MainWrap>
+  );
 }
