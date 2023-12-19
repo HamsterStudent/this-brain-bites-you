@@ -1,5 +1,4 @@
 "use client";
-import MainBanner from "public/assets/temp/main_banner.png";
 import NewBanner from "public/assets/temp/new.png";
 import IconTooth from "public/assets/temp/icon_tooth.png";
 import Image from "next/image";
@@ -17,6 +16,9 @@ const MainContentsWrap = styled.section`
   width: 95%;
   display: flex;
   flex-wrap: wrap;
+  h1 {
+    font-size: 72px;
+  }
 `;
 
 const marquee = keyframes`
@@ -88,8 +90,14 @@ export default function Home() {
   return (
     <MainWrap>
       <MainContentsWrap>
+        <h1>김하연 KIMHAYEON 金河緣</h1>
         <ImageWrap>
-          <Image src={MainBanner} alt="MainBanner" />
+          <Image
+            src="/assets/mainImg.png"
+            width={1000}
+            height={1000}
+            alt="MainBanner"
+          />
         </ImageWrap>
         <MainBenner>
           <ImageWrap>
