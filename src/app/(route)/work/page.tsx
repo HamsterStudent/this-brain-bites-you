@@ -6,6 +6,9 @@ import Orderliness from "public/assets/temp/orderliness.png";
 import Brain from "public/assets/temp/icon_brain.png";
 import Image from "next/image";
 import Navigation from "@/app/_components/navigation";
+import PlayGround from "./_components/playGround";
+
+const Container = styled.div``;
 
 const WorkWrap = styled.section`
   width: 100%;
@@ -30,12 +33,6 @@ const Sidebar = styled.div`
     }
   }
   margin-bottom: 10px;
-`;
-
-const PlayGround = styled.div`
-  width: 100%;
-  height: 50vh;
-  border: dotted 1px;
 `;
 
 const ImageWrap = styled.div`
@@ -66,9 +63,8 @@ export default function Work() {
             </ImageWrap>
           </div>
         </Sidebar>
-        <PlayGround></PlayGround>
+        <PlayGround />
       </WorkContents>
-
       <Navigation />
     </WorkWrap>
   );
