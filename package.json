@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/server": "^4.9.5",
     "axios": "^1.6.2",
     "babel-plugin-styled-components": "^2.1.4",
+    "graphql": "^16.8.1",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
