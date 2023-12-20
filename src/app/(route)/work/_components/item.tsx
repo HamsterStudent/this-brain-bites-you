@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const Content = styled.div`
   width: 150px;
@@ -51,7 +51,7 @@ export default function Item({
   const nodeRef = React.useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  // const router = useRouter();
+  const router = useRouter();
   // const { id } = router.query;
 
   // const getData = async () => {
@@ -73,6 +73,8 @@ export default function Item({
     } = e;
     setCurname(`${textContent}`);
     if (className.indexOf("active") > -1) {
+      const itemId = 1;
+      router.push(`/work/${itemId}`);
       setCurname("");
     }
   };
