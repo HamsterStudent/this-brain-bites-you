@@ -21,12 +21,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  @font-face {
-font-family: 'UhBeeSe_hyun';
-src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
-font-weight: normal;
-font-style: normal;
-}
   margin: 0;
   padding: 0;
   border: 0;

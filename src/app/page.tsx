@@ -56,7 +56,7 @@ const MainBenner = styled.div`
     margin: 0 auto;
     white-space: nowrap;
     min-width: 0;
-    border: dotted 1px #61ff5e;
+    border-left: dotted 1px #61ff5e;
     display: flex;
     align-items: center;
     .ticker {
