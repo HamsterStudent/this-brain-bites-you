@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import NavImg from "public/assets/temp/nev.png";
-import NavOpenImg from "public/assets/temp/nev_open.png";
+import NavImg from "public/assets/nav/nav_before.png";
+import NavOpenImg from "public/assets/nav/nav_after.png";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 const Nav = styled.section`
+  position: fixed;
+  top: 30px;
+  right: 5%;
   width: 10%;
   min-width: 80px;
 `;
 const ImageWrap = styled.div`
+  max-width: 120px;
   width: 100%;
   height: 100%;
   img {
@@ -20,10 +24,10 @@ const ImageWrap = styled.div`
 `;
 
 const NavListWrap = styled.div`
-  background: url("/assets/temp/nav_bg.png") no-repeat;
+  background: url("/assets/nav/nav_bg.png") no-repeat;
   background-size: contain;
   text-align: center;
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
   .mainCategory {
     li {
       margin-bottom: 15px;
