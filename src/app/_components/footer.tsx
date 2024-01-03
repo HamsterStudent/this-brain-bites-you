@@ -2,14 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterWrap = styled.section`
-  @font-face {
-    font-family: "Copperplate";
-    src: url("https://fonts.cdnfonts.com/css/copperplate");
-    font-weight: normal;
-    font-style: normal;
-  }
   width: 100%;
-  font-family: "Copperplate", sans-serif;
+  font-family: "copperplate", sans-serif;
+  font-weight: 700;
 `;
 
 export default function Footer() {
