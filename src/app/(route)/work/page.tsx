@@ -5,7 +5,6 @@ import Disorder from "public/assets/temp/disorder.png";
 import Orderliness from "public/assets/temp/orderliness.png";
 import Brain from "public/assets/temp/icon_brain.png";
 import Image from "next/image";
-import Navigation from "@/app/_components/navigation";
 import PlayGround from "./_components/playGround";
 
 const Container = styled.div``;
@@ -19,7 +18,6 @@ const WorkWrap = styled.section`
 
 const WorkContents = styled.section`
   width: 100%;
-  padding: 10px;
 `;
 
 const Sidebar = styled.div`
@@ -65,7 +63,6 @@ export default function Work() {
         </Sidebar>
         <PlayGround />
       </WorkContents>
-      <Navigation />
     </WorkWrap>
   );
 }

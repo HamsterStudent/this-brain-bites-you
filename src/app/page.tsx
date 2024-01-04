@@ -4,7 +4,6 @@ import IconTooth from "public/assets/temp/icon_tooth.png";
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
-import Navigation from "./_components/navigation";
 import { useState } from "react";
 
 const MainWrap = styled.section`
@@ -50,16 +49,12 @@ const MainBanner = styled.div`
 
 const Item = styled.div`
   position: absolute;
-  img {
-    width: 10%;
-    height: 10%;
-  }
   &:hover {
-    transform: scale(1.03);
+    /* transform: scale(1.03); */
     transition: transform 0.2s ease-in-out;
   }
   &:not(:hover) {
-    transform: scale(1);
+    /* transform: scale(1); */
     transition: transform 0.2s ease-in-out;
   }
   &.blank {
@@ -116,22 +111,27 @@ const Item = styled.div`
 
 const Banner = styled.div`
   width: 50%;
-  min-height: 100px;
-  max-height: 150px;
+  min-height: 80px;
+  max-height: 100px;
   display: flex;
   align-items: center;
+`;
+
+const Prompt = styled(Banner)`
+  border-left: dashed 2px #61ff5e;
+  border-right: dashed 2px #61ff5e;
+  padding: 20px;
   .icon {
-    width: 50px;
+    width: 40px;
   }
   .prompt {
-    width: 300px;
+    width: 380px;
     min-width: 100%;
     overflow: hidden;
     height: 50px;
     margin: 0 auto;
     white-space: nowrap;
     min-width: 0;
-    border-left: dotted 1px #61ff5e;
     display: flex;
     align-items: center;
     .ticker {
@@ -229,7 +229,7 @@ export default function Home() {
           </ImageWrap>
         </Banner>
 
-        <Banner>
+        <Prompt>
           <div className="icon">
             <ImageWrap>
               <Image src={IconTooth} alt="IconTooth" />
@@ -273,10 +273,8 @@ export default function Home() {
               </span>
             </div>
           </div>
-        </Banner>
+        </Prompt>
       </MainContentsWrap>
-
-      <Navigation />
     </MainWrap>
   );
 }

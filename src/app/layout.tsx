@@ -6,6 +6,7 @@ import Script from "next/script";
 import StyledComponentsRegistry from "./lib/registry";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
+import Navigation from "./_components/navigation";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -105,6 +106,7 @@ export default function RootLayout({
             <AppWrap>
               <AppInner>
                 <div>{children}</div>
+                <Navigation />
                 <Footer />
               </AppInner>
             </AppWrap>
