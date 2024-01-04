@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import NavImg from "public/assets/nav/nav_before.png";
-import NavOpenImg from "public/assets/nav/nav_after.png";
+import NavImg from "public/assets/nav/compare_before.png";
+import NavOpenImg from "public/assets/nav/compare.png";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 const Nav = styled.section`
   position: fixed;
   top: 30px;
-  right: 5%;
+  right: 15%;
   width: 10%;
   min-width: 80px;
 `;
 const ImageWrap = styled.div`
-  max-width: 120px;
   width: 100%;
   height: 100%;
   img {
@@ -23,16 +22,24 @@ const ImageWrap = styled.div`
   }
 `;
 
+const NavOpen = styled.div``;
+
 const NavListWrap = styled.div`
-  background: url("/assets/nav/nav_bg.png") no-repeat;
   background-size: contain;
   text-align: center;
   /* padding-bottom: 80px; */
+  position: absolute;
+  top: 39%;
+
+  width: 100%;
   .mainCategory {
     li {
-      margin-bottom: 15px;
+      margin-bottom: 13%;
       font-weight: 500;
+      display: flex;
+      justify-content: center;
     }
+    padding-bottom: 30%;
   }
   .subCategory {
     li {
@@ -53,7 +60,7 @@ export default function Navigation() {
           <Image src={NavImg} alt="nav" />
         </ImageWrap>
       ) : (
-        <>
+        <NavOpen>
           <ImageWrap
             onClick={() => {
               setIsOpen((prev) => !prev);
@@ -64,37 +71,83 @@ export default function Navigation() {
           <NavListWrap>
             <ul className="mainCategory">
               <li>
-                <Link href={"/work"}>WORK</Link>
+                <Link href={"/work"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/works.png"} alt="works" />
+                  </ImageWrap>
+                </Link>
               </li>
               <li>
-                <Link href={"/"}>EVENT</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/events.png"} alt="events" />
+                  </ImageWrap>
+                </Link>
               </li>
               <li>
-                <Link href={"/"}>GUEST</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/guest.png"} alt="guest" />
+                  </ImageWrap>
+                </Link>
               </li>
               <li>
-                <Link href={"/"}>SHOP</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/shop.png"} alt="shop" />
+                  </ImageWrap>
+                </Link>
               </li>
               <li>
-                <Link href={"/"}>CONTACT</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/contact.png"} alt="contact" />
+                  </ImageWrap>
+                </Link>
+              </li>
+              <li>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/portfolio.png"} alt="portfolio" />
+                  </ImageWrap>
+                </Link>
+              </li>
+              <li>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/biography.png"} alt="biography" />
+                  </ImageWrap>
+                </Link>
               </li>
             </ul>
             <ul className="subCategory">
               <li>
-                <Link href={"/"}>Instagram</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/achive.png"} alt="achive" />
+                  </ImageWrap>
+                </Link>
               </li>
               <li>
-                <Link href={"/"}>Facebook</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img src={"/assets/nav/workss.png"} alt="workss" />
+                  </ImageWrap>
+                </Link>
               </li>
               <li>
-                <Link href={"/"}>Twitter</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Youtube</Link>
+                <Link href={"/"}>
+                  <ImageWrap>
+                    <img
+                      src={"/assets/nav/drawing_box.png"}
+                      alt="drawing_box"
+                    />
+                  </ImageWrap>
+                </Link>
               </li>
             </ul>
           </NavListWrap>
-        </>
+        </NavOpen>
       )}
     </Nav>
   );
