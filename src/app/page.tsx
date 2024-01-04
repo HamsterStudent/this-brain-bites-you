@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import Navigation from "./_components/navigation";
+import { useState } from "react";
 
 const MainWrap = styled.section`
   width: 100%;
@@ -17,7 +18,11 @@ const MainContentsWrap = styled.section`
   display: flex;
   flex-wrap: wrap;
   h1 {
+    width: 100%;
     font-size: 72px;
+    font-family: "din-condensed";
+    text-align: center;
+    word-break: keep-all;
   }
 `;
 
@@ -39,7 +44,77 @@ const swap = keyframes`
   }
 `;
 
-const MainBenner = styled.div`
+const MainBanner = styled.div`
+  position: relative;
+`;
+
+const Item = styled.div`
+  position: absolute;
+  img {
+    width: 10%;
+    height: 10%;
+  }
+  &:hover {
+    transform: scale(1.03);
+    transition: transform 0.2s ease-in-out;
+  }
+  &:not(:hover) {
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+  }
+  &.blank {
+    top: 35.7%;
+    left: 22.7%;
+    width: 14%;
+  }
+  &.guest {
+    top: 49.3%;
+    left: 5.9%;
+    width: 14.5%;
+  }
+  &.achive {
+    top: 54.1%;
+    left: 31.4%;
+    width: 20%;
+  }
+  &.shop {
+    top: 47.9%;
+    left: 16%;
+    width: 19.9%;
+  }
+  &.works {
+    top: 40.8%;
+    left: 37.4%;
+    width: 17.9%;
+  }
+  &.events {
+    top: 32%;
+    right: 13.8%;
+    width: 17.9%;
+  }
+  &.biographyPortfolio {
+    top: 34%;
+    right: 33%;
+    width: 13%;
+  }
+  &.contact {
+    top: 45.8%;
+    right: 27.1%;
+    width: 18.5%;
+  }
+  &.workss {
+    top: 58%;
+    right: 20.8%;
+    width: 15.8%;
+  }
+  &.drawingbox {
+    top: 68%;
+    right: 31.8%;
+    width: 14.5%;
+  }
+`;
+
+const Banner = styled.div`
   width: 50%;
   min-height: 100px;
   max-height: 150px;
@@ -87,25 +162,74 @@ const ImageWrap = styled.div`
 `;
 
 export default function Home() {
+  const [countIndex, setCountIndex] = useState(-1);
+
+  const itemList = [
+    "blank",
+    "guest",
+    "shop",
+    "works",
+    "achive",
+    "biographyPortfolio",
+    "events",
+    "contact",
+    "workss",
+    "drawingbox",
+  ];
+
   return (
     <MainWrap>
       <MainContentsWrap>
         <h1>김하연 KIMHAYEON 金河緣</h1>
-        <ImageWrap>
-          <Image
-            src="/assets/mainImg.png"
-            width={1000}
-            height={1000}
-            alt="MainBanner"
-          />
-        </ImageWrap>
-        <MainBenner>
+        <MainBanner>
           <ImageWrap>
-            <Image src={NewBanner} alt="NewBanner" />
+            <Image
+              src="/assets/main/background/main_back.png"
+              width={1000}
+              height={1000}
+              alt="MainBanner"
+            />
           </ImageWrap>
-        </MainBenner>
+          {itemList.map((x, idx) => {
+            return (
+              <Item
+                key={idx}
+                className={`${x} ${countIndex === idx && "active"}`}
+                onMouseEnter={() => {
+                  setCountIndex(idx);
+                }}
+                onMouseLeave={() => {
+                  setCountIndex(-1);
+                }}
+              >
+                <Link href={`/`}>
+                  <Image
+                    src={`/assets/main/icon/${
+                      countIndex === idx ? `after` : `before`
+                    }/${x}.png`}
+                    width={351}
+                    height={365}
+                    layout="responsive"
+                    alt={x}
+                  />
+                </Link>
+              </Item>
+            );
+          })}
+        </MainBanner>
 
-        <MainBenner>
+        <Banner>
+          <ImageWrap>
+            <Image
+              src="/assets/main/new.png"
+              width={1000}
+              height={1000}
+              alt="NewBanner"
+            />
+          </ImageWrap>
+        </Banner>
+
+        <Banner>
           <div className="icon">
             <ImageWrap>
               <Image src={IconTooth} alt="IconTooth" />
@@ -149,7 +273,7 @@ export default function Home() {
               </span>
             </div>
           </div>
-        </MainBenner>
+        </Banner>
       </MainContentsWrap>
 
       <Navigation />
