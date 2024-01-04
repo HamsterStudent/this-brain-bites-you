@@ -1,9 +1,9 @@
 export default function Head() {
   return (
     <>
-      <head>
+      {/* <head>
         <link rel="stylesheet" href="https://use.typekit.net/nzb1gaa.css" />
-      </head>
+      </head> */}
       <title>THIS BRAIN BITES YOU</title>
     </>
   );
