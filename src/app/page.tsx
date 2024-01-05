@@ -50,11 +50,11 @@ const MainBanner = styled.div`
 const Item = styled.div`
   position: absolute;
   &:hover {
-    /* transform: scale(1.03); */
+    transform: scale(1.03);
     transition: transform 0.2s ease-in-out;
   }
   &:not(:hover) {
-    /* transform: scale(1); */
+    transform: scale(1);
     transition: transform 0.2s ease-in-out;
   }
   &.blank {
@@ -134,14 +134,21 @@ const Prompt = styled(Banner)`
     min-width: 0;
     display: flex;
     align-items: center;
+
     .ticker {
       display: inline-block;
       animation: ${marquee} 20s linear infinite;
+      &:hover {
+        animation-play-state: paused;
+      }
     }
     .item-collection-1 {
       position: relative;
       left: 0%;
       animation: ${swap} 20s linear infinite;
+      &:hover {
+        animation-play-state: paused;
+      }
     }
     .item {
       display: inline-block;
@@ -202,13 +209,13 @@ export default function Home() {
                   setCountIndex(-1);
                 }}
               >
-                <Link href={`/`}>
+                <Link href={`/${x}`}>
                   <Image
                     src={`/assets/main/icon/${
                       countIndex === idx ? `after` : `before`
                     }/${x}.png`}
-                    width={351}
-                    height={365}
+                    width={350}
+                    height={350}
                     layout="responsive"
                     alt={x}
                   />
