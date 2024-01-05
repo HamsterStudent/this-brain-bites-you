@@ -7,6 +7,7 @@ import StyledComponentsRegistry from "./lib/registry";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
 import Navigation from "./_components/navigation";
+import HeadSection from "./head";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -101,7 +102,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeProvider theme={defaultTheme}>
             <GlobalStyle />
-            <Head />
+            <HeadSection />
             <Header />
             <AppWrap>
               <AppInner>

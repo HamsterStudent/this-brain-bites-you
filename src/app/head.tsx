@@ -1,9 +1,11 @@
-export default function Head() {
+import Head from "next/head";
+
+export default function HeadSection() {
   return (
     <>
-      {/* <head>
+      <Head>
         <link rel="stylesheet" href="https://use.typekit.net/nzb1gaa.css" />
-      </head> */}
+      </Head>
       <title>THIS BRAIN BITES YOU</title>
     </>
   );
