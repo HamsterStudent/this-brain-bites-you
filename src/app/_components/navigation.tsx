@@ -71,7 +71,7 @@ export default function Navigation() {
           <NavListWrap>
             <ul className="mainCategory">
               <li>
-                <Link href={"/work"}>
+                <Link href={"/works"}>
                   <ImageWrap>
                     <img src={"/assets/nav/works.png"} alt="works" />
                   </ImageWrap>
