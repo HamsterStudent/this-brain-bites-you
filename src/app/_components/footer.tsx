@@ -5,6 +5,8 @@ const FooterWrap = styled.section`
   width: 100%;
   font-family: "copperplate", sans-serif;
   font-weight: 700;
+  color: grey;
+  font-size: 24px;
 `;
 
 export default function Footer() {
