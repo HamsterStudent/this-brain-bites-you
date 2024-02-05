@@ -74,7 +74,7 @@ export default function Item({
     setCurname(`${textContent}`);
     if (className.indexOf("active") > -1) {
       const itemId = 1;
-      router.push(`/work/${itemId}`);
+      router.push(`/works/${textContent}`);
       setCurname("");
     }
   };
