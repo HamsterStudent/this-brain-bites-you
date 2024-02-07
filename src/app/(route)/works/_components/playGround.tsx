@@ -38,7 +38,7 @@ const prodList = [
     defaultPosition: { x: -100, y: 30 },
   },
   {
-    name: "hamster5",
+    name: "1",
     img: "/assets/prod/6.png",
     defaultPosition: { x: 300, y: 0 },
   },
