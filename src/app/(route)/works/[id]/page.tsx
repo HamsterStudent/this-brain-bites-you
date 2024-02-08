@@ -1,18 +1,32 @@
 "use client";
 
 import axios from "axios";
+import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 interface IData {
   id: string;
   name: string;
   tag: string[];
   img: string[];
+  material: string;
   size: number;
   exp: string;
   description: string;
 }
+
+const ImgWrap = styled.div`
+  position: relative;
+  width: 100px;
+  height: 100px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
 
 export default function Detail() {
   const router = useRouter();
@@ -34,6 +48,7 @@ export default function Detail() {
             img
             name
             size
+            material
             tag
           }
         }
@@ -55,11 +70,17 @@ export default function Detail() {
         <>
           <div>
             <h1>{data.name}</h1>
-            <div>{data.description}</div>
+            <div>{data.material}</div>
+            <div>{data.size}cm</div>
             <div>{data.exp}</div>
-            <div>
-              <img src="/assets/prod/6.png" alt={`${data.name}`} />
-            </div>
+            <div>{data.description}</div>
+            {data.img.map((x) => {
+              return (
+                <ImgWrap key={x}>
+                  <Image src={x} alt={x} fill={true} />
+                </ImgWrap>
+              );
+            })}
           </div>
         </>
       ) : null}

@@ -8,7 +8,10 @@ let products = [
     id: "1",
     name: "어른의 이빨요정",
     tag: ["acc"],
+    icon: "/assets/prod/6.png",
+    iconPosition: { x: 300, y: 0 },
     img: ["/assets/prod/6.png"],
+    material: "silver",
     size: 3.5,
     exp: "2023",
     description: "치아관리 잘하세요 찾아가기 전에",
@@ -27,6 +30,7 @@ const typeDefs = gql`
     name: String!
     tag: [String]
     img: [String]
+    material: String
     size: Float
     exp: String
     description: String
