@@ -29,6 +29,9 @@ const typeDefs = gql`
     id: ID!
     name: String!
     tag: [String]
+    icon: String
+    # 타입 찾아야 함
+    iconPosition: {}
     img: [String]
     material: String
     size: Float

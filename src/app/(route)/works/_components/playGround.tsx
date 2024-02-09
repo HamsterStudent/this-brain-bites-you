@@ -2,6 +2,7 @@ import React, { RefObject, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Item from "./item";
 import Image from "next/image";
+import axios from "axios";
 
 const PlayGroundWrap = styled.div`
   position: relative;
@@ -53,10 +54,25 @@ const prodList = [
     defaultPosition: { x: 30, y: -150 },
   },
 ];
+interface IData {
+  id: string;
+  name: string;
+  tag: string[];
+  icon: string;
+  iconPosition: { x: number; y: number };
+  img: string[];
+  material: string;
+  size: number;
+  exp: string;
+  description: string;
+}
+[];
 export default function PlayGround() {
   const [tempElement, setTempElement] = useState<HTMLElement>();
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [curname, setCurname] = useState("");
+
+  const [data, setData] = useState<IData[]>([]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -66,29 +82,61 @@ export default function PlayGround() {
       // 여기서 containerWidth 변수를 사용하여 원하는 작업 수행 가능
     }
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [data]);
+  const fetchData = async () => {
+    try {
+      const response = await axios.post("/api/works", {
+        query: `
+        query {
+          allProducts() {
+            name
+            icon
+            iconPosition
+          }
+        }
+      `,
+      });
+      const {
+        data: {
+          data: { product },
+        },
+      } = response;
+      setData(product);
+    } catch (error) {
+      console.error("error:", error);
+    }
+  };
+
   return (
     <PlayGroundWrap ref={containerRef}>
-      {prodList.map((x, index) => {
-        return (
-          <Item
-            key={x.name}
-            defaultPosition={x.defaultPosition}
-            containerRef={tempElement}
-            name={x.name}
-            curname={curname}
-            setCurname={setCurname}
-          >
-            <Image
-              src={x.img}
-              width={300}
-              height={300}
-              alt={x.name}
-              loading="lazy"
-            />
-            <p>{x.name}</p>
-          </Item>
-        );
-      })}
+      {data ? (
+        <div>
+          {data.map((x, index) => {
+            return (
+              <Item
+                key={x.name}
+                defaultPosition={x.iconPosition}
+                containerRef={tempElement}
+                name={x.name}
+                curname={curname}
+                setCurname={setCurname}
+              >
+                <Image
+                  src={x.icon}
+                  width={300}
+                  height={300}
+                  alt={x.name}
+                  loading="lazy"
+                />
+                <p>{x.name}</p>
+              </Item>
+            );
+          })}
+        </div>
+      ) : null}
     </PlayGroundWrap>
   );
 }
