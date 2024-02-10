@@ -85,35 +85,40 @@ export default function PlayGround() {
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, []);
   const fetchData = async () => {
     try {
       const response = await axios.post("/api/works", {
         query: `
         query {
-          allProducts() {
+          allProducts {
             name
             icon
-            iconPosition
+            iconPosition{
+              x
+              y
+            }
           }
         }
       `,
       });
       const {
         data: {
-          data: { product },
+          data: { allProducts },
         },
       } = response;
-      setData(product);
+
+      setData(allProducts);
+      console.log(allProducts);
     } catch (error) {
       console.error("error:", error);
     }
   };
 
   return (
-    <PlayGroundWrap ref={containerRef}>
+    <>
       {data ? (
-        <div>
+        <PlayGroundWrap ref={containerRef}>
           {data.map((x, index) => {
             return (
               <Item
@@ -135,8 +140,8 @@ export default function PlayGround() {
               </Item>
             );
           })}
-        </div>
+        </PlayGroundWrap>
       ) : null}
-    </PlayGroundWrap>
+    </>
   );
 }
