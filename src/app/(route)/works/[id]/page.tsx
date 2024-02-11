@@ -30,18 +30,18 @@ const ImgWrap = styled.div`
 
 export default function Detail() {
   const router = useRouter();
-  const pathnName = usePathname().replace("/works/", "");
+  const pathName = usePathname().replace("/works/", "");
   const [data, setData] = useState<IData>();
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, []);
   const fetchData = async () => {
     try {
       const response = await axios.post("/api/works", {
         query: `
         query {
-          product(id: "${pathnName}") {
+          product(id: "${pathName}") {
             description
             exp
             id
