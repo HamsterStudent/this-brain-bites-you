@@ -5,8 +5,8 @@ import { NextRequest } from "next/server";
 
 let products = [
   {
-    id: "1",
-    name: "어른의 이빨요정",
+    id: "toothfairy",
+    name: "toothfairy",
     tag: ["acc"],
     icon: "/assets/prod/6.png",
     iconPosition: { x: 300, y: 0 },
