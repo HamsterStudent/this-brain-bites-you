@@ -12,48 +12,6 @@ const PlayGroundWrap = styled.div`
   overflow: hidden;
 `;
 
-const prodList = [
-  {
-    name: "hamster",
-    img: "/assets/prod/1.png",
-    defaultPosition: { x: 0, y: 0 },
-  },
-  {
-    name: "hamster1",
-    img: "/assets/prod/2.png",
-    defaultPosition: { x: 30, y: -150 },
-  },
-  {
-    name: "hamster2",
-    img: "/assets/prod/3.png",
-    defaultPosition: { x: -130, y: -30 },
-  },
-  {
-    name: "hamster3",
-    img: "/assets/prod/4.png",
-    defaultPosition: { x: 150, y: -50 },
-  },
-  {
-    name: "hamster4",
-    img: "/assets/prod/5.png",
-    defaultPosition: { x: -100, y: 30 },
-  },
-  {
-    name: "1",
-    img: "/assets/prod/6.png",
-    defaultPosition: { x: 300, y: 0 },
-  },
-  {
-    name: "hamster6",
-    img: "/assets/prod/7.png",
-    defaultPosition: { x: 30, y: -150 },
-  },
-  {
-    name: "hamster7",
-    img: "/assets/prod/8.png",
-    defaultPosition: { x: 30, y: -150 },
-  },
-];
 interface IData {
   id: string;
   name: string;
